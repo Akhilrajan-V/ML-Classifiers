@@ -1,13 +1,5 @@
 from preprocess import train_data
-
 import numpy as np
-import cv2 as cv
-
-
-# print((train_data['train'][i][1]))
-# cv.imshow('train', train_data['train'][i][0])
-# cv.waitKey(0)
-
 
 class PCA:
 
@@ -69,6 +61,7 @@ class PCA:
         return self.projected_data, self.compressed_data
 
 
+#  # --------- For DEBUGGING -----------#
 # a = PCA()
 # a.__int__()
 # X_pca = a.transform(a.X)

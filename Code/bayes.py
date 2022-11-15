@@ -43,8 +43,9 @@ class Bayes:
     def _pdf(self, x, index):
         mean = self._mean[index][:]
         cov = self._cov[index]
-        temp1 = (x - mean).T
-        cov_inv, cov_det = self.precdet(cov, 0.3)
+        cov += 0.0001*np.identity(np.shape(cov)[0])
+        temp1 = (np.subtract(x, mean)).T
+        cov_inv, cov_det = self.precdet(cov, 0.5)
         temp = np.dot(temp1, cov_inv)
         temp2 = np.dot(temp, (x - mean))
         numerator = np.exp((-1/2)*temp2)
