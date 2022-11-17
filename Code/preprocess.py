@@ -38,6 +38,7 @@ def split_data(dataset):
 
 split_data(data)
 
+
 def n_v_ex_data_gen(filename):
     data = sc.loadmat(filename)
     dat = data['face']

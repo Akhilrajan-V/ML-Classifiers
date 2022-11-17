@@ -1,5 +1,5 @@
-from preprocess import train_data
 import numpy as np
+
 
 class PCA:
 
@@ -50,7 +50,6 @@ class PCA:
 
         # Reconstruct the required images
         for im in range((self.projected_data.shape[0])):
-            # im = 1
             projected_image = np.expand_dims(self.projected_data[im], 0)  # (1, num_dims)
 
             # Matrix multiply projected_image(1, num_dims) with projection_matrix transposed

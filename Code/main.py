@@ -1,9 +1,18 @@
 import numpy as np
+import sys
 import matplotlib.pyplot as plt
 from preprocess import train_data, test_data
 # from preprocess import X_train_nvs, Y_train_nvs, X_test_nvs, Y_test_nvs
 # from preprocess import X_val_nvs, Y_val_nvs
 from preprocess import n_v_ex_data_gen
+
+'''
+sys.path is a list of absolute path strings (DO NOT GIVE RELATIVE PATH)
+'''
+
+data_path = "/home/akhil/PycharmProjects/pythonProject/Spr_Proj1/"
+sys.path.append(data_path)
+
 import PCA
 import MDA
 from bayes import Bayes

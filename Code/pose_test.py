@@ -4,7 +4,7 @@ import random
 
 import PCA
 from bayes import Bayes
-from knn import KNN
+
 
 def load_POSE(filename):
     data = sio.loadmat(filename)

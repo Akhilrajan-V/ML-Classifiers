@@ -1,12 +1,12 @@
-
 import numpy as np
 from preprocess import n_v_ex_data_gen
 from svm import SVM
 import PCA
 import matplotlib.pyplot as plt
 
-X_train_nvs, X_test_nvs, X_val_nvs, Y_train_nvs, Y_test_nvs, Y_val_nvs = n_v_ex_data_gen(
-    '/home/akhil/PycharmProjects/pythonProject/Spr_Proj1/Data/data.mat')
+data_path = '/home/akhil/PycharmProjects/pythonProject/Spr_Proj1/Data/data.mat'
+X_train_nvs, X_test_nvs, X_val_nvs, Y_train_nvs, Y_test_nvs, Y_val_nvs = n_v_ex_data_gen(data_path)
+
 
 X_nvs_dim = np.shape(X_train_nvs)
 X = X_train_nvs.reshape((X_train_nvs.shape[0], X_train_nvs.shape[1]*X_train_nvs.shape[2]))
