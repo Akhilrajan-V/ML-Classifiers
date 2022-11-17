@@ -90,8 +90,6 @@ def cross_validate_svm(X, Y, X_val, Y_val, kernel):
         print("Optimal value of Sigma: ", Sigma[index])
         return Sigma[index]
 
-    # print("SVM with {} Kernel -- Accuracy={}%".format(kernel, accuracy(Y_test_, svm_prediction)))
-
 
 def choose_class(c, X_train, Y_train, X_test, Y_test_):
     if c==1:
@@ -123,7 +121,6 @@ def choose_class(c, X_train, Y_train, X_test, Y_test_):
             kernel="polynomial"
             svm_p = SVM()
             svm_p.__int__()
-            # print(np.shape(X_val_nvs))
             # X_val_nvs = X_val_nvs.reshape((X_val_nvs.shape[0], X_val_nvs.shape[1] * X_val_nvs.shape[2]))
             r = cross_validate_svm(X_train, Y_train, X_val_nvs, Y_val_nvs, kernel)
             w, b, losses = svm_p.fit(X_train, Y_train, X_val_nvs, Y_val_nvs, kernel=kernel, r=r)
@@ -139,7 +136,6 @@ def choose_class(c, X_train, Y_train, X_test, Y_test_):
             kernel="RBF"
             svm_p = SVM()
             svm_p.__int__()
-            # print(np.shape(X_val_nvs))
             # X_val_nvs = X_val_nvs.reshape((X_val_nvs.shape[0], X_val_nvs.shape[1] * X_val_nvs.shape[2]))
             sigma = cross_validate_svm(X_train, Y_train, X_val_nvs, Y_val_nvs, kernel)
             w, b, losses = svm_p.fit(X_train, Y_train, X_val_nvs, Y_val_nvs, kernel=kernel, sigma=sigma)
@@ -153,7 +149,18 @@ def choose_class(c, X_train, Y_train, X_test, Y_test_):
 
         else:
             print("Invalid defaulting")
-            kernel=None
+            kernel = "Linear"
+            svm_p = SVM()
+            svm_p.__int__()
+            # X_val_nvs = X_val_nvs.reshape((X_val_nvs.shape[0], X_val_nvs.shape[1] * X_val_nvs.shape[2]))
+            w, b, losses = svm_p.fit(X_train, Y_train, X_val_nvs, Y_val_nvs)
+            svm_prediction = svm_p.predict(X_test)
+            print("SVM with {} Kernel -- Accuracy={}%".format(kernel, accuracy(Y_test_, svm_prediction)))
+            plt.title("training Loss")
+            plt.plot(losses)
+            plt.xlabel("Iterations")
+            plt.ylabel("Error")
+            plt.show()
 
 
 if task == 1:
