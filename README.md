@@ -21,13 +21,14 @@ The Bayes and KNN classifiers are applied to both the classification tasks. The 
 - opencv
 - sys
 
-
+---
 ### DATA PREPROCESSING
 The data is preprocessed before it is given to a classifier for either of the tasks. Dimensionality reduction algorithms to choose from,   
 - Principal Component Analysis 
 - Multiple Discriminant Analysis
 
 **PRINCIPAL COMPONENT ANALYSIS**
+---
 
 The PCA preprocessing retains 99% of the original image variance while reducing the number of dimensions by more than half of that of the original image. 
 
@@ -42,8 +43,8 @@ Left PCA Processed Image VS Right Original Image
 
 ![img](/Assets/pca_pic2.png)  ![img](/Assets/original_pic2.png)
 
-**MULTIPLE DISCRIMINANT ANALYSIS**
-
+MULTIPLE DISCRIMINANT ANALYSIS
+---
 In the MDA script choose the number of components the data should be projected on. 
 
 *NOTE Defalut is 200 components in the main script* 
@@ -52,9 +53,12 @@ In the MDA script choose the number of components the data should be projected o
 
 [img](/Assets/mda_pic2.png)  ![img](/Assets/original_pic2.png)
 
+---
+
 ### TRAIN AND TEST DATA GENERATION
 The preprocessed data is now split into train and test data. For Task 1: 2 images per subject are taken randomly for the train data while the remaining is used for test i.e., 1 image per label for test. For Task 2: All the neutral faces regardless of subject are given a common label and all the expressive face images are grouped together. Illumination images are discarded. `PLEASE See Data folder`.    
 
+---
 ### TASK 1: Subject/Label Recognition 
 
 The SVM classifiers are not available for this task. The Bayes classifier performs poorly due to high correlation among data. Bayes classifier uses MLE to estimate data mean and variance to model posterior.  
@@ -63,6 +67,7 @@ The SVM classifiers are not available for this task. The Bayes classifier perfor
 
 All classifiers are available for this task. Note: Radial Basis Kernel SVM results in the highest classification accuracy at over 91%. 
 
+---
 ### RUN THE CODE
 
 Simply run the `Code/main.py` script from an IDE(recommended). Follow the terminal instructions to choose various available actions. 
@@ -72,4 +77,4 @@ Simply run the `Code/main.py` script from an IDE(recommended). Follow the termin
 - [ ] Data.mat dataset implemented
 - [x] Pose.mat dataset implemented
 - [ ] MDA processing file optimized
-
+---
